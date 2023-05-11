@@ -56,7 +56,7 @@ export const Nav = styled.nav`
     border-radius: 10px;
     border: none;
     font-size: 1rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-search' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23000000' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0' /%3E%3Cpath d='M21 21l-6 -6' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-search' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0' /%3E%3Cpath d='M21 21l-6 -6' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: left 0;
     background-size: 2rem;
@@ -68,8 +68,9 @@ export const Nav = styled.nav`
       cursor: pointer;
     }
     &:focus {
-      outline: none;
-      background-color: white;
+      outline: 1px solid darkgray;
+      background-color: inherit;
+      color: white;
       width: 10rem;
     }
   }
