@@ -184,9 +184,17 @@ export const Main = styled.main`
 
 export const TrendingStyle = styled.section`
     background-color: inherit;
-    color: white;
     a {
         color: white;
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+    .overflow {
+        overflow: hidden;
     }
     section {
         display: grid;
@@ -198,8 +206,11 @@ export const TrendingStyle = styled.section`
             gap: 1rem;
         }
         img {
-            object-fit: cover;
+            object-fit: contain;
             width: 100%;
+            height: auto;
+            overflow: hidden;
+            transition: 0.5s;
         }
         @media screen and (min-width: 768px) {
             grid-template-columns: repeat(3, 1fr);
@@ -229,15 +240,19 @@ export const TrendingStyle = styled.section`
                 width: 100%;
                 padding: 1rem 0;
                 text-align: center;
+                color: inherit;
                 &:hover:not(.break) {
                     cursor: pointer;
                     opacity: 0.6;
                 }
             }
-
             &.selected {
                 color: black;
                 background-color: white;
+            }
+            &.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
             }
         }
     }
@@ -357,4 +372,4 @@ export const ErrorStyles = styled.main`
     height: 100vh;
     background-color: black;
     color: white;
-`
+`;

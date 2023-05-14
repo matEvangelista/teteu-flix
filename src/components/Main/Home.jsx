@@ -17,8 +17,10 @@ export default function Home() {
                     <figcaption>
                         <p>{media.title}</p>
                         <p>
-                          <span>&#11088;{Math.ceil(media.vote_average)}/10</span>
-                          <span>{media.release_date.slice(0,4)}</span>
+                            <span>
+                                &#11088;{Math.ceil(media.vote_average)}/10
+                            </span>
+                            <span>{media.release_date.slice(0, 4)}</span>
                         </p>
                     </figcaption>
                 </figure>
@@ -35,7 +37,9 @@ export default function Home() {
     return (
         <>
             <HomeHeader
-                background_img={`https://image.tmdb.org/t/p/original${data[Math.floor(Math.random()*(data.length + 1))].backdrop_path}`}
+                background_img={`https://image.tmdb.org/t/p/original${
+                    data[Math.floor(Math.random() * data.length)].backdrop_path
+                }`}
             >
                 <h1>TeteuFlix</h1>
                 <h2>A melhor escolha em cinema</h2>

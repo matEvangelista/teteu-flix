@@ -8,11 +8,16 @@ import { Link } from "react-router-dom";
 export default function Trending({ type }) {
     function generateCard(media) {
         return (
-            <Link key={media.id} to={`/${type === "movie" ? "filmes" : "series"}/`+media.id}>
+            <Link
+                key={media.id}
+                to={`/${type === "movie" ? "filmes" : "series"}/` + media.id}
+            >
                 <figure>
-                    <img
-                        src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
-                    />
+                    <div className="overflow">
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
+                        />
+                    </div>
                     <figcaption>
                         <p>{type === "movie" ? media.title : media.name}</p>
                         <p>

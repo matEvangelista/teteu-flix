@@ -81,7 +81,7 @@ export default function HeaderComponent({ type }) {
                         <i className="fa-solid fa-play"></i>
                         <span>Assistir agora</span>
                     </a>
-                    <a
+                    <a  target="_blank"
                         href={trailer}
                         style={
                             trailer !== ""
