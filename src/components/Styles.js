@@ -28,6 +28,7 @@ export const Nav = styled.nav`
     width: 100%;
     color: white;
     backdrop-filter: blur(30px) brightness(0.8);
+    z-index: 999;
     div.nav-container {
         ${container};
         display: flex;
@@ -78,7 +79,7 @@ export const Nav = styled.nav`
 `;
 
 export const Header = styled.header`
-    height: 100vh;
+    height: 90vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
         ${(props) => `url(https://image.tmdb.org/t/p/original/${props.url})`};
     background-position: center;
@@ -127,7 +128,7 @@ export const Header = styled.header`
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: .5rem;
+            gap: 0.5rem;
             width: 50%;
         }
         a:first-of-type {
@@ -146,4 +147,95 @@ export const HeaderHolder = styled.section`
     justify-content: center;
     background-color: black;
     color: white;
-`
+`;
+
+export const Main = styled.main`
+    background-color: black;
+    padding: 2rem 0;
+    color: white;
+    h2 {
+        ${container};
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+    .container {
+        ${container};
+    }
+    .card {
+        ${container};
+        figure {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            figcaption {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+`;
+
+export const TrendingStyle = styled.section`
+    background-color: inherit;
+    color: white;
+    section {
+        display: grid;
+        row-gap: 2rem;
+        column-gap: 1.5rem;
+        figure {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media screen and (min-width: 1400px) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    ul {
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: fit-content;
+        display: flex;
+        gap: 1rem;
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid white;
+            width: 3rem;
+            height: 3rem;
+            a {
+                width: 100%;
+                padding: 1rem 0;
+                text-align: center;
+                &:hover:not(.break) {
+                    cursor: pointer;
+                    opacity: 0.6;
+                }
+            }
+
+            &.selected {
+                color: black;
+                background-color: white;
+            }
+        }
+    }
+`;

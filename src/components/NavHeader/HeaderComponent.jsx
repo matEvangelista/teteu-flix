@@ -84,7 +84,7 @@ export default function HeaderComponent({ type }) {
                         href={trailer}
                         style={
                             type === "movie"
-                                ? { display: "block" }
+                                ? { display: "flex" }
                                 : { display: "none" }
                         }
                     >
