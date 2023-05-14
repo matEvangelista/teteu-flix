@@ -1,6 +1,6 @@
 import useFetch from "../useFetch";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper";
+import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Main } from "../Styles";
@@ -48,17 +48,13 @@ export default function ({ type }) {
 
             <section className="container">
                 <Swiper
-                    modules={[Navigation, Autoplay]}
+                    modules={[Navigation]}
                     navigation
                     loop
                     breakpoints={{
                         1: { slidesPerView: 1 },
                         960: { slidesPerView: 2 },
                         1200: { slidesPerView: 3 },
-                    }}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
                     }}
                 >
                     {data.map(generateCard)}

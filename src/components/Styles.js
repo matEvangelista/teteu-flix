@@ -185,6 +185,9 @@ export const Main = styled.main`
 export const TrendingStyle = styled.section`
     background-color: inherit;
     color: white;
+    a {
+        color: white;
+    }
     section {
         display: grid;
         row-gap: 2rem;
@@ -297,3 +300,61 @@ export const HomeMain = styled.main`
     background-color: black;
     color: white;
 `;
+
+export const MediaContainer = styled.main`
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        ${(props) =>
+            `url(https://image.tmdb.org/t/p/original/${props.background_img})`};
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-top: 1rem;
+    h1 {
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+    .movie-container {
+        ${container};
+    }
+    .poster-text {
+        display: flex;
+        gap: 4rem;
+        align-content: center;
+        line-height: 2rem;
+        img {
+            width: 100%;
+            height: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px black;
+        }
+        & > div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 2rem;
+        }
+        h3 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+    iframe {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+    }
+`;
+
+export const ErrorStyles = styled.main`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+`

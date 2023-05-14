@@ -1,3 +1,5 @@
+import Movie from "./components/Individual/Movie";
+import TV from "./components/Individual/TV";
 import Home from "./components/Main/Home";
 import Media from "./components/Media";
 import Navbar from "./components/NavHeader/Navbar";
@@ -9,6 +11,8 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/filmes" element={<Media type={"movie"} />} />
+                <Route path="/filmes/:filmeID" element={<Movie/>}/>
+                <Route path="/series/:seriesID" element={<TV/>}/>
                 <Route path="/series" element={<Media type={"tv"} />} />
                 <Route path="/" element={<Home/>}/>
             </Routes>

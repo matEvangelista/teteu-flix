@@ -3,25 +3,28 @@ import ReactPaginate from "react-paginate";
 import useFetch from "../useFetch";
 import { TrendingStyle } from "../Styles";
 import HeaderPlaceholder from "../NavHeader/HeaderPlaceholder";
+import { Link } from "react-router-dom";
 
 export default function Trending({ type }) {
     function generateCard(media) {
         return (
-            <figure key={media.id}>
-                <img
-                    src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
-                />
-                <figcaption>
-                    <p>{type === "movie" ? media.title : media.name}</p>
-                    <p>
-                        {String(
-                            type === "movie"
-                                ? media.release_date
-                                : media.first_air_date
-                        ).slice(0, 4)}
-                    </p>
-                </figcaption>
-            </figure>
+            <Link key={media.id} to={`/${type === "movie" ? "filmes" : "series"}/`+media.id}>
+                <figure>
+                    <img
+                        src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
+                    />
+                    <figcaption>
+                        <p>{type === "movie" ? media.title : media.name}</p>
+                        <p>
+                            {String(
+                                type === "movie"
+                                    ? media.release_date
+                                    : media.first_air_date
+                            ).slice(0, 4)}
+                        </p>
+                    </figcaption>
+                </figure>
+            </Link>
         );
     }
 

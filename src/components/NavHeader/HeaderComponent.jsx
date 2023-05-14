@@ -8,13 +8,15 @@ export default function HeaderComponent({ type }) {
         if (mins < 60) return `${mins}min`;
         return `${Math.trunc(mins / 60)}h ${mins % 60}min`;
     }
+
     function getGenres(array) {
         const result = [];
         for (let i = 0; i < array.length; i++) {
-            result.push(array[i].name)
+            result.push(array[i].name);
         }
         return result.join(", ");
     }
+
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     const [trailer, setTrailer] = useState("");
@@ -34,7 +36,7 @@ export default function HeaderComponent({ type }) {
             .catch((err) => alert(err));
         result.then((r) => {
             setData(r);
-            if (type === "movie")
+            if (r.videos.results.length !== 0)
                 setTrailer(
                     `https://youtube.com/watch?v=${r.videos.results[0].key}`
                 );
@@ -61,8 +63,7 @@ export default function HeaderComponent({ type }) {
                                 ? data.release_date
                                 : data.first_air_date
                         ).slice(0, 4)}
-                        |
-                        {getGenres(data.genres)}
+                        |{getGenres(data.genres)}
                     </p>
                 </div>
                 <div>
@@ -83,7 +84,7 @@ export default function HeaderComponent({ type }) {
                     <a
                         href={trailer}
                         style={
-                            type === "movie"
+                            trailer !== ""
                                 ? { display: "flex" }
                                 : { display: "none" }
                         }
