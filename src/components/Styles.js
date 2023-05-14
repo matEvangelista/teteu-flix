@@ -239,3 +239,61 @@ export const TrendingStyle = styled.section`
         }
     }
 `;
+
+export const HomeHeader = styled.header`
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1)),
+        ${(props) =>
+            `url(https://image.tmdb.org/t/p/original/${props.background_img})`};
+    height: 90vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    color: white;
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+`;
+
+export const HomeMain = styled.main`
+    .container {
+        ${container}
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .card {
+        ${container};
+        figure {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            figcaption {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+    background-color: black;
+    color: white;
+`;
