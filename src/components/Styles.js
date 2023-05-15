@@ -163,6 +163,9 @@ export const Main = styled.main`
     }
     .card {
         ${container};
+        a {
+            color: white;
+        }
         figure {
             width: 100%;
             max-width: 300px;
@@ -289,6 +292,9 @@ export const HomeMain = styled.main`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    a {
+        color: white;
+    }
     .card {
         ${container};
         figure {

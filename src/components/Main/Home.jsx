@@ -3,27 +3,30 @@ import { HomeHeader, HomeMain } from "../Styles";
 import useFetch from "../useFetch";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 
 export default function Home() {
     function generateCard(media) {
         return (
-            <SwiperSlide className="card" key={media.poster_path}>
-                <figure>
-                    <img
-                        src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
-                    />
-                    <figcaption>
-                        <p>{media.title}</p>
-                        <p>
-                            <span>
-                                &#11088;{Math.ceil(media.vote_average)}/10
-                            </span>
-                            <span>{media.release_date.slice(0, 4)}</span>
-                        </p>
-                    </figcaption>
-                </figure>
+            <SwiperSlide className="card" key={media.id}>
+                <Link to={`/filmes/${media.id}`}>
+                    <figure>
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
+                        />
+                        <figcaption>
+                            <p>{media.title}</p>
+                            <p>
+                                <span>
+                                    &#11088;{Math.ceil(media.vote_average)}/10
+                                </span>
+                                <span>{media.release_date.slice(0, 4)}</span>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </Link>
             </SwiperSlide>
         );
     }

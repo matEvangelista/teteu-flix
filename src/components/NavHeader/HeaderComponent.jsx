@@ -84,7 +84,7 @@ export default function HeaderComponent({ type }) {
                     <a  target="_blank"
                         href={trailer}
                         style={
-                            trailer !== ""
+                            type === "movie"
                                 ? { display: "flex" }
                                 : { display: "none" }
                         }

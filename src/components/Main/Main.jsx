@@ -4,28 +4,31 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Main } from "../Styles";
+import { Link } from "react-router-dom";
 import HeaderPlaceholder from "../NavHeader/HeaderPlaceholder";
 import Trending from "./Trending";
 
 export default function ({ type }) {
     function generateCard(media) {
         return (
-            <SwiperSlide className="card" key={media.poster_path}>
-                <figure>
-                    <img
-                        src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
-                    />
-                    <figcaption>
-                        <p>{type === "movie" ? media.title : media.name}</p>
-                        <p>
-                            {String(
-                                type === "movie"
-                                    ? media.release_date
-                                    : media.first_air_date
-                            ).slice(0, 4)}
-                        </p>
-                    </figcaption>
-                </figure>
+            <SwiperSlide className="card" key={media.id}>
+                <Link to={`${type === "movie" ? "/filmes/" : "/series/"}${media.id}`}>
+                    <figure>
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
+                        />
+                        <figcaption>
+                            <p>{type === "movie" ? media.title : media.name}</p>
+                            <p>
+                                {String(
+                                    type === "movie"
+                                        ? media.release_date
+                                        : media.first_air_date
+                                ).slice(0, 4)}
+                            </p>
+                        </figcaption>
+                    </figure>
+                </Link>
             </SwiperSlide>
         );
     }
