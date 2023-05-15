@@ -53,7 +53,7 @@ export const Nav = styled.nav`
             }
         }
     }
-    input {
+    input[type="text"] {
         padding: 0.5rem 1rem;
         border-radius: 10px;
         border: none;
@@ -74,6 +74,30 @@ export const Nav = styled.nav`
             background-color: inherit;
             color: white;
             width: 10rem;
+        }
+    }
+    form {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 2rem;
+        overflow: hidden;
+        padding-left: .2rem;
+        transition: .5s;
+        &.active {
+            width: 20rem;
+        }
+    }
+
+    input[type="submit"] {
+        font-size: 1rem;
+        background-color: inherit;
+        color: white;
+        border: 1px solid white;
+        padding: 0.5rem;
+        border-radius: 10px;
+        &:hover {
+            cursor: pointer;
         }
     }
 `;
@@ -293,6 +317,9 @@ export const HomeMain = styled.main`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    a {
+        color: white;
+    }
     .card {
         ${container};
         figure {
@@ -376,4 +403,52 @@ export const ErrorStyles = styled.main`
     height: 100vh;
     background-color: black;
     color: white;
+`;
+
+export const SearchResults = styled.main`
+    display: grid;
+    min-height: 100vh;
+    gap: 2rem;
+    & > * {
+        ${container};
+    }
+    padding: 3.5rem 0;
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    section {
+        display: grid;
+        gap: 1rem;
+    }
+    background-color: rgb(18, 3, 42);
+    color: white;
+    figure {
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(37, 9, 82);
+        }
+        padding: 1rem;
+        display: flex;
+        border-radius: 10px;
+        justify-content: space-between;
+        gap: 3rem;
+        img {
+            border-radius: 10px;
+            height: 100%;
+            max-height: 400px;
+            margin: auto 0;
+        }
+        figcaption {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
 `;

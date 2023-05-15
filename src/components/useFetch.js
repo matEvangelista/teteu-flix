@@ -5,12 +5,10 @@ export default function useFetch(url) {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true); // começa carregando por padrão
-    if (url === null) return {a:null, a:null, a:null};
+    if (url === null) return { a: null, a: null, a: null };
     useEffect(() => {
         axios
-            .get(
-                `${url}`
-            )
+            .get(`${url}`)
             .then((response) => {
                 setData(response.data.results);
             })
