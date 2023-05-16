@@ -49,6 +49,8 @@ export default function Search() {
         );
     }
 
+    document.title = "TeteuFlix - Busca";
+
     const searchID = useParams().pesquisaID;
     const movieSearch =
         `https://api.themoviedb.org/3/search/movie?api_key=e7158e992adf7c4e90bd637caa889ece&query=${searchID}&language=pt-BR`.replaceAll(
@@ -69,9 +71,19 @@ export default function Search() {
         <SearchResults>
             <h1>Resultados para {searchID}</h1>
             <h2>Filmes</h2>
-            <section>{movie.data.map(displayMovies)}</section>
+            <section>
+                {movie.data.length === 0 ? (
+                    <p>Sem resultados</p>
+                ) : (
+                    movie.data.map(displayMovies)
+                )}
+            </section>
             <h2>Séries</h2>
-            <section>{tv.data.map(displayTV)}</section>
+            <section>{tv.data.length === 0 ? (
+                    <p>Sem resultados</p>
+                ) : (
+                    tv.data.map(displayTV)
+                )}</section>
         </SearchResults>
     );
 }

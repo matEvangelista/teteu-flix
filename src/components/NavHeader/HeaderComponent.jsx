@@ -2,6 +2,7 @@ import { Header } from "../Styles";
 import logo from "../../assets/IMDB.png";
 import { useEffect, useState } from "react";
 import HeaderPlaceholder from "./HeaderPlaceholder";
+import useDocumentTitle from "../useDocumentTitle";
 
 export default function HeaderComponent({ type }) {
     function minutesToHours(mins) {
@@ -16,6 +17,8 @@ export default function HeaderComponent({ type }) {
         }
         return result.join(", ");
     }
+
+    document.title = `TeteuFlix - ${type === "movie" ? "Filmes" : "Séries"}`;
 
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);

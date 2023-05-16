@@ -40,7 +40,11 @@ export default function TV() {
 
     if (foundError) return <ErrorMessage />;
 
-    {console.log(movie.videos)}
+    document.title = `TeteuFlix - ${movie.name}`;
+
+    {
+        console.log(movie.videos);
+    }
 
     return (
         <MediaContainer background_img={movie.backdrop_path}>
@@ -60,13 +64,11 @@ export default function TV() {
                         </h3>
                         <div className="responsive-video">
                             <iframe
-                                width="560"
-                                height="315"
                                 src={
-                                    movie.videos.results.length === 0
-                                        ? ""
-                                        : `https://www.youtube.com/embed/${movie.videos.results[0].key}`
+                                    movie.videos.results.length > 0 &&
+                                    `https://www.youtube.com/embed/${movie.videos.results[0].key}`
                                 }
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 title="YouTube video player"
                                 allowFullScreen
                             ></iframe>

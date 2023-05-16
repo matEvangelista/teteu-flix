@@ -44,6 +44,8 @@ export default function Movie() {
 
     if (foundError) return <ErrorMessage />;
 
+    document.title = `TeteuFlix - ${movie.title}`
+
     return (
         <MediaContainer background_img={movie.backdrop_path}>
             <section className="movie-container">
@@ -56,20 +58,29 @@ export default function Movie() {
                         <h3>
                             <p>Sinopse: {movie.overview}</p>
                             <p>
-                                &#11088;{Math.trunc(movie.vote_average)}/10 |{" "}
-                                {getGenres(movie.genres)} |
-                                {minutesToHours(movie.runtime)}
+                                <span>
+                                    &#11088;{Math.trunc(movie.vote_average)}/10|
+                                </span>
+                                <span>{getGenres(movie.genres)}|</span>
+                                <span>{minutesToHours(movie.runtime)}|</span>
+                                <span>
+                                    Receita: US$
+                                    {movie.budget
+                                        .toString()
+                                        .replace(
+                                            /(\d)(?=(\d\d\d)+(?!\d))/g,
+                                            "$1."
+                                        )}
+                                </span>
                             </p>
                         </h3>
                         <div className="responsive-video">
                             <iframe
-                                width="560"
-                                height="315"
                                 src={
-                                    movie.videos.results.length === 0
-                                        ? ""
-                                        : `https://www.youtube.com/embed/${movie.videos.results[0].key}`
+                                    movie.videos.results.length > 0 &&
+                                    `https://www.youtube.com/embed/${movie.videos.results[0].key}`
                                 }
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 title="YouTube video player"
                                 allowFullScreen
                             ></iframe>

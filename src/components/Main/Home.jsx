@@ -35,6 +35,8 @@ export default function Home() {
         "https://api.themoviedb.org/3/account/19268743/favorite/movies?api_key=e7158e992adf7c4e90bd637caa889ece&page=1&session_id=86c9f088b5a4b6f83a822f8b18c5336cc96a09cd&language=pt-BR"
     );
 
+    document.title = "TeteuFlix";
+
     if (loading) return <HeaderPlaceholder />;
 
     return (
