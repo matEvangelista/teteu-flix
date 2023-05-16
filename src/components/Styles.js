@@ -82,8 +82,8 @@ export const Nav = styled.nav`
         gap: 1rem;
         width: 2rem;
         overflow: hidden;
-        padding-left: .2rem;
-        transition: .5s;
+        padding-left: 0.2rem;
+        transition: 0.5s;
         &.active {
             width: 20rem;
         }
@@ -118,15 +118,18 @@ export const Header = styled.header`
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        font-weight: lighter;
         div {
             display: flex;
             gap: 1rem;
         }
         h2 {
             font-size: 2.5rem;
+            font-weight: bold;
         }
         .stars {
             font-size: 2rem;
+            font-weight: regular;
         }
         img {
             height: 2rem;
@@ -135,7 +138,7 @@ export const Header = styled.header`
         margin-bottom: 5%;
         p:last-of-type {
             max-width: 800px;
-            font-weight: lighter;
+            font-weight: light;
         }
     }
     .links-container {
@@ -146,6 +149,7 @@ export const Header = styled.header`
             color: white;
             padding: 1rem 0rem;
             border-radius: 60px;
+            font-weight: bold;
             &:hover {
                 opacity: 0.8;
             }
@@ -183,6 +187,7 @@ export const Main = styled.main`
     h2 {
         ${container};
         margin-bottom: 2rem;
+        font-weight: bold;
         font-size: 2rem;
     }
     .container {
@@ -205,6 +210,9 @@ export const Main = styled.main`
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+                p:first-of-type {
+                    font-weight: bold;
+                }
             }
         }
         img {
@@ -215,6 +223,7 @@ export const Main = styled.main`
 
 export const TrendingStyle = styled.section`
     background-color: inherit;
+    margin-top: 2rem;
     a {
         color: white;
         overflow: hidden;
@@ -235,6 +244,9 @@ export const TrendingStyle = styled.section`
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            p:first-of-type {
+                font-weight: bold;
+            }
         }
         img {
             object-fit: contain;
@@ -304,9 +316,11 @@ export const HomeHeader = styled.header`
     color: white;
     h1 {
         font-size: 4rem;
+        font-weight: bold;
     }
     h2 {
         font-size: 2rem;
+        font-weight: bold;
     }
 `;
 
@@ -316,10 +330,12 @@ export const HomeMain = styled.main`
     }
     h2 {
         font-size: 2rem;
+        font-weight: bold;
     }
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding-bottom: 4rem;
     a {
         color: white;
     }
@@ -363,7 +379,8 @@ export const MediaContainer = styled.main`
     padding-top: 1rem;
     h1 {
         font-size: 3rem;
-        margin: 2rem 0;
+        margin: 3rem 0;
+        font-weight: bold
     }
     .movie-container {
         ${container};
@@ -418,9 +435,11 @@ export const SearchResults = styled.main`
     padding: 3.5rem 0;
     h1 {
         font-size: 3rem;
+        font-weight: bold;
     }
     h2 {
         font-size: 2.5rem;
+        font-weight: bold;
     }
     h3 {
         font-size: 2rem;
@@ -453,5 +472,31 @@ export const SearchResults = styled.main`
             flex-direction: column;
             justify-content: space-around;
         }
+    }
+`;
+
+export const FooterStyle = styled.footer`
+    color: white;
+    background-color: rgb(0, 2, 23);
+    padding: 2rem 0;
+    .container {
+        ${container};
+        display: grid;
+        align-items: center;
+        gap: 3rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    a {
+        color: white;
+        width: 100%;
+        text-align: center;
     }
 `;

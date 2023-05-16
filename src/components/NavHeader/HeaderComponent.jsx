@@ -101,7 +101,7 @@ export default function HeaderComponent({ type }) {
                             data.id
                         }`}
                     >
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i className="fa-solid fa-circle-info"></i>
                         <span>Detalhes</span>
                     </Link>
                 </div>

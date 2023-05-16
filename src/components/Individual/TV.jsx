@@ -42,10 +42,6 @@ export default function TV() {
 
     document.title = `TeteuFlix - ${movie.name}`;
 
-    {
-        console.log(movie.videos);
-    }
-
     return (
         <MediaContainer background_img={movie.backdrop_path}>
             <section className="movie-container">

@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -26,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   font-size: calc(15px + 0.390625vw);
-	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -47,3 +50,4 @@ table {
 a {
 	text-decoration: none;
 }
+`;
