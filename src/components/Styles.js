@@ -355,6 +355,9 @@ export const HomeMain = styled.main`
                 p {
                     display: flex;
                     justify-content: space-between;
+                    &:first-of-type {
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -380,7 +383,7 @@ export const MediaContainer = styled.main`
     h1 {
         font-size: 3rem;
         margin: 3rem 0;
-        font-weight: bold
+        font-weight: bold;
     }
     .movie-container {
         ${container};
@@ -407,6 +410,12 @@ export const MediaContainer = styled.main`
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+        @media screen and (max-width: 992px) {
+            flex-direction: column;
+            img {
+                margin: 0 auto;
+            }
         }
     }
     iframe {
