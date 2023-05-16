@@ -158,8 +158,11 @@ export const Header = styled.header`
         a:first-of-type {
             background-color: #d53a00;
         }
-        a:last-of-type {
+        a {
             background-color: #717171;
+        }
+        a:last-of-type {
+            background-color: #01111e;
         }
     }
 `;

@@ -2,7 +2,7 @@ import { Header } from "../Styles";
 import logo from "../../assets/IMDB.png";
 import { useEffect, useState } from "react";
 import HeaderPlaceholder from "./HeaderPlaceholder";
-import useDocumentTitle from "../useDocumentTitle";
+import { Link } from "react-router-dom";
 
 export default function HeaderComponent({ type }) {
     function minutesToHours(mins) {
@@ -84,7 +84,8 @@ export default function HeaderComponent({ type }) {
                         <i className="fa-solid fa-play"></i>
                         <span>Assistir agora</span>
                     </a>
-                    <a  target="_blank"
+                    <a
+                        target="_blank"
                         href={trailer}
                         style={
                             type === "movie"
@@ -95,6 +96,14 @@ export default function HeaderComponent({ type }) {
                         <i className="fa-solid fa-film"></i>
                         <span>Trailer</span>
                     </a>
+                    <Link
+                        to={`${type === "movie" ? "/filmes" : "/series"}/${
+                            data.id
+                        }`}
+                    >
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Detalhes</span>
+                    </Link>
                 </div>
             </section>
         </Header>
