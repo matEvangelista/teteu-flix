@@ -9,11 +9,11 @@ export default function useFetch(url) {
     useEffect(() => {
         axios
             .get(`${url}`)
-            .then((response) => {
-                setData(response.data.results);
-            })
             .catch((err) => {
                 setError(err);
+            })
+            .then((response) => {
+                setData(response.data);
             })
             .finally(() => {
                 setLoading(false);

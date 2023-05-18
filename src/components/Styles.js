@@ -224,6 +224,34 @@ export const Main = styled.main`
 export const TrendingStyle = styled.section`
     background-color: inherit;
     margin-top: 2rem;
+    .button-container {
+        display: flex;
+        align-items: center;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none; // esconde a barra de scroll
+        }
+        gap: 0.5rem;
+        button {
+            min-width: 10rem;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 0.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: .2s;
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(67, 67, 67);
+            }
+            &.clicked{
+                background-color: white;
+                color: black;
+            }
+        }
+        margin-bottom: 2rem;
+    }
     a {
         color: white;
         overflow: hidden;

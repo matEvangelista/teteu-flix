@@ -60,7 +60,7 @@ export default function ({ type }) {
                         1200: { slidesPerView: 3 },
                     }}
                 >
-                    {data.map(generateCard)}
+                    {data.results.map(generateCard)}
                 </Swiper>
             </section>
 

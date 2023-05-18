@@ -72,17 +72,17 @@ export default function Search() {
             <h1>Resultados para {searchID}</h1>
             <h2>Filmes</h2>
             <section>
-                {movie.data.length === 0 ? (
+                {movie.data.results.length === 0 ? (
                     <p>Sem resultados</p>
                 ) : (
-                    movie.data.map(displayMovies)
+                    movie.data.results.map(displayMovies)
                 )}
             </section>
             <h2>Séries</h2>
-            <section>{tv.data.length === 0 ? (
+            <section>{tv.data.results.length === 0 ? (
                     <p>Sem resultados</p>
                 ) : (
-                    tv.data.map(displayTV)
+                    tv.data.results.map(displayTV)
                 )}</section>
         </SearchResults>
     );

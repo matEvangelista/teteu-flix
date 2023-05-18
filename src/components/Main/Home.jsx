@@ -43,7 +43,7 @@ export default function Home() {
         <>
             <HomeHeader
                 background_img={`https://image.tmdb.org/t/p/original${
-                    data[Math.floor(Math.random() * data.length)].backdrop_path
+                    data.results[Math.floor(Math.random() * data.results.length)].backdrop_path
                 }`}
             >
                 <h1>TeteuFlix</h1>
@@ -66,7 +66,7 @@ export default function Home() {
                             disableOnInteraction: false,
                         }}
                     >
-                        {data.map(generateCard)}
+                        {data.results.map(generateCard)}
                     </Swiper>
                 </section>
             </HomeMain>
