@@ -78,7 +78,7 @@ export default function HeaderComponent({ type }) {
                     </p>
                     <img src={logo} alt="logo imdb" />
                 </div>
-                <p>{data.overview}</p>
+                <p className="overview">{data.overview}</p>
                 <div className="links-container">
                     <a href="">
                         <i className="fa-solid fa-play"></i>

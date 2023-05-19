@@ -9,7 +9,7 @@ const container = `
   }
   @media screen and (min-width: 768px) {
     width: 100;
-    max-width: 720px;
+    max-width: 750px;
   }
   @media screen and (min-width: 992px) {
     max-width: 960px;
@@ -37,11 +37,37 @@ export const Nav = styled.nav`
         padding: 0.5rem 0;
         a {
             color: white;
+            &.active {
+                font-weight: bold;
+            }
         }
-        & > div {
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+        .button-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button {
+                padding: 0;
+                background-color: inherit;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                display: none;
+                align-items: center;
+                @media screen and (max-width: 768px) {
+                    display: flex;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
+        }
+        .options {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            width: 100%;
             a {
                 padding: 0.5rem 2rem;
                 border-radius: 30px;
@@ -49,7 +75,32 @@ export const Nav = styled.nav`
                 &.active {
                     background-color: #747474;
                     box-shadow: 0px 0px 2px black;
+                    font-weight: normal;
                 }
+            }
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                display: none;
+                &.clicked {
+                    display: flex;
+                }
+            }
+        }
+        .links {
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+        }
+        .form-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            @media screen and (max-width: 768px) {
+                margin-top: 0.5rem;
+                flex-direction: column;
             }
         }
     }
@@ -145,9 +196,12 @@ export const Header = styled.header`
         width: 100%;
         max-width: 600px;
         text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         a {
             color: white;
-            padding: 1rem 0rem;
+            padding: 1rem 1.5rem;
             border-radius: 60px;
             font-weight: bold;
             &:hover {
@@ -157,7 +211,6 @@ export const Header = styled.header`
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
-            width: 50%;
         }
         a:first-of-type {
             background-color: #d53a00;
@@ -167,6 +220,24 @@ export const Header = styled.header`
         }
         a:last-of-type {
             background-color: #01111e;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .overview {
+            max-height: 10rem;
+            overflow: scroll;
+            overflow-x: hidden;
+            &::-webkit-scrollbar {
+                width: 5px;
+                height: none;
+            }
+            &::-webkit-scrollbar-track {
+                background: inherit;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 10px;
+            }
         }
     }
 `;
@@ -517,6 +588,13 @@ export const SearchResults = styled.main`
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+        }
+        @media screen and (max-width: 992px) {
+            img {
+                height: 100%;
+            }
+            align-items: center;
+            flex-direction: column;
         }
     }
 `;

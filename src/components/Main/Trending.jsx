@@ -60,19 +60,21 @@ export default function Trending({ type }) {
 
     const [filteredGenres, setFilteredGenres] = useState([]);
 
-    const { data, loading, error } = useFetch(
-        `https://api.themoviedb.org/3/discover/${type}?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR
-        &with_genres=${filteredGenres.join(",")}&page=${count}`
-    );
 
     useEffect(()=> {
         // para que serve este hook? Para envitar que os filtros dos filmes passem para as séries e vice-versa
-        setFilteredGenres([]);
         const buttons = document.getElementsByClassName('filtering-buttons');
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove('clicked')
         }
+        setFilteredGenres([]);
+        {console.log(filteredGenres)}
     }, [type])
+
+    const { data, loading, error } = useFetch(
+        `https://api.themoviedb.org/3/discover/${type}?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR
+        &with_genres=${filteredGenres.join(",")}&page=${count}`
+    );
 
     const genres = useFetch(
         `https://api.themoviedb.org/3/genre/${type}/list?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR`
