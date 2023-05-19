@@ -25,7 +25,7 @@ export default function Navbar() {
                             vertical.current.classList.toggle("clicked");
                         }}
                     >
-                        <i classList="fa-solid fa-bars"></i>
+                        <i className="fa-solid fa-bars"></i>
                     </button>
                 </div>
                 <div className="options" ref={vertical}>
