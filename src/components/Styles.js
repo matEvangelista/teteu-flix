@@ -226,11 +226,16 @@ export const TrendingStyle = styled.section`
     margin-top: 2rem;
     .button-container {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        overflow: scroll;
-        &::-webkit-scrollbar {
-            display: none; // esconde a barra de scroll
+        @media screen and (max-width: 800px) {
+            overflow: scroll;
+            flex-wrap: nowrap;
+            &::-webkit-scrollbar {
+                display: none; // esconde a barra de scroll
+            }
         }
+
         gap: 0.5rem;
         button {
             min-width: 10rem;
@@ -240,12 +245,12 @@ export const TrendingStyle = styled.section`
             padding: 0.5rem;
             border-radius: 10px;
             font-size: 1rem;
-            transition: .2s;
+            transition: 0.2s;
             &:hover {
                 cursor: pointer;
                 background-color: rgb(67, 67, 67);
             }
-            &.clicked{
+            &.clicked {
                 background-color: white;
                 color: black;
             }
@@ -268,6 +273,7 @@ export const TrendingStyle = styled.section`
         display: grid;
         row-gap: 2rem;
         column-gap: 1.5rem;
+        justify-items: center;
         figure {
             display: flex;
             flex-direction: column;
@@ -487,11 +493,14 @@ export const SearchResults = styled.main`
     }
     background-color: rgb(18, 3, 42);
     color: white;
-    figure {
+    a {
+        color: white;
         &:hover {
             cursor: pointer;
             background-color: rgb(37, 9, 82);
         }
+    }
+    figure {
         padding: 1rem;
         display: flex;
         border-radius: 10px;

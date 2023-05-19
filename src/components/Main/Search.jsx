@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import useFetch from "../useFetch";
 import HeaderPlaceholder from "../NavHeader/HeaderPlaceholder";
 import { SearchResults } from "../Styles";
@@ -7,45 +7,40 @@ export default function Search() {
     const navigate = useNavigate();
     function displayMovies(data) {
         return (
-            <figure
-                onClick={() => {
-                    navigate(`/filmes/${data.id}`);
-                }}
-                key={data.id}
-            >
-                <img
-                    src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
-                />
-                <figcaption>
-                    <h3>{data.title}</h3>
-                    <p>{data.overview}</p>
-                    <p>&#11088;{data.vote_average.toFixed(1)}/10</p>
-                </figcaption>
-            </figure>
+            <Link key={data.id} to={`/../filmes/${data.id}`}>
+                <figure>
+                    <img
+                        src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
+                    />
+                    <figcaption>
+                        <h3>{data.title}</h3>
+                        <p>{data.overview}</p>
+                        <p>&#11088;{data.vote_average.toFixed(1)}/10</p>
+                    </figcaption>
+                </figure>
+            </Link>
         );
     }
 
     function displayTV(data) {
         return (
-            <figure
-                onClick={() => {
-                    navigate(`/series/${data.id}`);
-                }}
-                key={data.id}
-            >
-                <img
-                    src={
-                        data.poster_path === null
-                            ? ""
-                            : `https://image.tmdb.org/t/p/original${data.poster_path}`
-                    }
-                />
-                <figcaption>
-                    <h3>{data.name}</h3>
-                    <p>{data.overview}</p>
-                    <p>&#11088;{data.vote_average.toFixed(1)}/10</p>
-                </figcaption>
-            </figure>
+            <Link to={`../series/${data.id}`} key={data.id}>
+                <figure
+                >
+                    <img
+                        src={
+                            data.poster_path === null
+                                ? ""
+                                : `https://image.tmdb.org/t/p/original${data.poster_path}`
+                        }
+                    />
+                    <figcaption>
+                        <h3>{data.name}</h3>
+                        <p>{data.overview}</p>
+                        <p>&#11088;{data.vote_average.toFixed(1)}/10</p>
+                    </figcaption>
+                </figure>
+            </Link>
         );
     }
 
@@ -79,11 +74,13 @@ export default function Search() {
                 )}
             </section>
             <h2>Séries</h2>
-            <section>{tv.data.results.length === 0 ? (
+            <section>
+                {tv.data.results.length === 0 ? (
                     <p>Sem resultados</p>
                 ) : (
                     tv.data.results.map(displayTV)
-                )}</section>
+                )}
+            </section>
         </SearchResults>
     );
 }
