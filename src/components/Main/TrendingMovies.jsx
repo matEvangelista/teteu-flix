@@ -5,13 +5,10 @@ import { TrendingStyle } from "../Styles";
 import HeaderPlaceholder from "../NavHeader/HeaderPlaceholder";
 import { Link } from "react-router-dom";
 
-export default function Trending({ type }) {
+export default function TrendingMovies() {
     function generateCard(media) {
         return (
-            <Link
-                key={media.id}
-                to={`/${type === "movie" ? "filmes" : "series"}/` + media.id}
-            >
+            <Link key={media.id} to={`/filmes/` + media.id}>
                 <figure>
                     <div className="overflow">
                         <img
@@ -19,14 +16,8 @@ export default function Trending({ type }) {
                         />
                     </div>
                     <figcaption>
-                        <p>{type === "movie" ? media.title : media.name}</p>
-                        <p>
-                            {String(
-                                type === "movie"
-                                    ? media.release_date
-                                    : media.first_air_date
-                            ).slice(0, 4)}
-                        </p>
+                        <p>{media.title}</p>
+                        <p>{String(media.release_date).slice(0, 4)}</p>
                     </figcaption>
                 </figure>
             </Link>
@@ -38,7 +29,7 @@ export default function Trending({ type }) {
             <button
                 key={genre.id}
                 id={genre.id}
-                className='filtering-buttons'
+                className="filtering-buttons"
                 onClick={() => {
                     const classes = document.getElementById(genre.id).classList;
                     classes.toggle("clicked");
@@ -60,24 +51,13 @@ export default function Trending({ type }) {
 
     const [filteredGenres, setFilteredGenres] = useState([]);
 
-
-    useEffect(()=> {
-        // para que serve este hook? Para envitar que os filtros dos filmes passem para as séries e vice-versa
-        const buttons = document.getElementsByClassName('filtering-buttons');
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('clicked')
-        }
-        setFilteredGenres([]);
-        {console.log(filteredGenres)}
-    }, [type])
-
     const { data, loading, error } = useFetch(
-        `https://api.themoviedb.org/3/discover/${type}?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR
+        `https://api.themoviedb.org/3/discover/movie?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR
         &with_genres=${filteredGenres.join(",")}&page=${count}`
     );
 
     const genres = useFetch(
-        `https://api.themoviedb.org/3/genre/${type}/list?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR`
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR`
     );
 
     if (loading || genres.loading) return <HeaderPlaceholder />;

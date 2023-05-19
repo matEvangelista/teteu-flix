@@ -412,6 +412,7 @@ export const HomeHeader = styled.header`
             `url(https://image.tmdb.org/t/p/original/${props.background_img})`};
     height: 90vh;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;

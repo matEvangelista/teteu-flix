@@ -6,7 +6,8 @@ import "swiper/css/navigation";
 import { Main } from "../Styles";
 import { Link } from "react-router-dom";
 import HeaderPlaceholder from "../NavHeader/HeaderPlaceholder";
-import Trending from "./Trending";
+import TrendingMovies from "./TrendingMovies";
+import TrendingTV from "./TrendingTV";
 
 export default function ({ type }) {
     function generateCard(media) {
@@ -64,7 +65,7 @@ export default function ({ type }) {
                 </Swiper>
             </section>
 
-            <Trending type={type} />
+            {type === "movie" ? <TrendingMovies/>: <TrendingTV/>}
         </Main>
     );
 }
