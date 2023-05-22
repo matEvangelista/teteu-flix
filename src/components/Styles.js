@@ -177,6 +177,7 @@ export const Header = styled.header`
         h2 {
             font-size: 2.5rem;
             font-weight: bold;
+            line-height: 3rem;
         }
         .stars {
             font-size: 2rem;
@@ -224,7 +225,7 @@ export const Header = styled.header`
     }
     @media screen and (max-width: 768px) {
         .overview {
-            max-height: 10rem;
+            max-height: 8rem;
             overflow: scroll;
             overflow-x: hidden;
             &::-webkit-scrollbar {
@@ -563,14 +564,15 @@ export const SearchResults = styled.main`
         display: grid;
         gap: 1rem;
     }
-    background-color: rgb(18, 3, 42);
+    background-color: black;
     color: white;
     a {
         color: white;
         &:hover {
             cursor: pointer;
-            background-color: rgb(37, 9, 82);
+            background-color: rgb(18, 3, 42);
         }
+        border-radius: 20px;
     }
     figure {
         padding: 1rem;
@@ -596,6 +598,64 @@ export const SearchResults = styled.main`
             }
             align-items: center;
             flex-direction: column;
+        }
+    }
+`;
+
+export const LoginStyle = styled.main`
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        ${(props) => `url(${props.url})`};
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+    color: white;
+    padding: 4rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+        text-align: center;
+    }
+    form {
+        ${container};
+        width: fit-content;
+        padding: 2rem;
+        border-radius: 20px;
+        backdrop-filter: blur(30px) brightness(0.8);
+        display: grid;
+        justify-content: center;
+        gap: 2rem;
+        margin: auto;
+        label {
+            display: grid;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+        input[type="text"],
+        input[type="password"] {
+            outline: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: none;
+        }
+        input[type="submit"] {
+            width: inherit;
+            margin: auto;
+            padding: 1rem;
+            border-radius: 10px;
+            border: none;
+            background-color: white;
+            transition: .2s; 
+            &:hover{
+                cursor: pointer;
+                background-color:  rgb(0, 2, 23);
+                color: white;
+            }
         }
     }
 `;

@@ -47,6 +47,8 @@ export default function TrendingTV() {
         );
     }
 
+    const [width, setWidth] = useState(window.innerWidth);
+
     const [count, setCount] = useState(1);
 
     const [filteredGenres, setFilteredGenres] = useState([]);
@@ -59,6 +61,10 @@ export default function TrendingTV() {
     const genres = useFetch(
         `https://api.themoviedb.org/3/genre/tv/list?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR`
     );
+
+    window.onresize = ()=> {
+        setWidth(window.innerWidth);
+    }
 
     if (loading || genres.loading) return <HeaderPlaceholder />;
 
@@ -76,8 +82,8 @@ export default function TrendingTV() {
                 nextLabel=">"
                 previousLabel="<"
                 pageCount={Math.min(data.total_pages, 500)}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={2}
+                pageRangeDisplayed={width > 576 ? 3 : 0}
+                marginPagesDisplayed={1}
                 renderOnZeroPageCount={null}
                 onPageChange={(event) => {
                     setCount(event.selected + 1);

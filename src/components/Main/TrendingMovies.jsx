@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import useFetch from "../useFetch";
 import { TrendingStyle } from "../Styles";
@@ -47,6 +47,8 @@ export default function TrendingMovies() {
         );
     }
 
+    const [width, setWidth] = useState(window.innerWidth);
+
     const [count, setCount] = useState(1);
 
     const [filteredGenres, setFilteredGenres] = useState([]);
@@ -59,6 +61,10 @@ export default function TrendingMovies() {
     const genres = useFetch(
         `https://api.themoviedb.org/3/genre/movie/list?api_key=e7158e992adf7c4e90bd637caa889ece&language=pt-BR`
     );
+
+    window.onresize = ()=> {
+        setWidth(window.innerWidth);
+    }
 
     if (loading || genres.loading) return <HeaderPlaceholder />;
 
@@ -76,8 +82,8 @@ export default function TrendingMovies() {
                 nextLabel=">"
                 previousLabel="<"
                 pageCount={Math.min(data.total_pages, 500)}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={2}
+                pageRangeDisplayed={width > 576 ? 3 : 0}
+                marginPagesDisplayed={1}
                 renderOnZeroPageCount={null}
                 onPageChange={(event) => {
                     setCount(event.selected + 1);

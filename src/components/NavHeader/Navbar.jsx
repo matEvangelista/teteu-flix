@@ -1,5 +1,5 @@
 import { Nav } from "../Styles";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -53,7 +53,7 @@ export default function Navbar() {
                                 if (input.current.value !== "")
                                     navigate(`pesquisa/${input.current.value}`);
                                 input.current.value = "";
-                                vertical.current.classList.remove('clicked')
+                                vertical.current.classList.remove("clicked");
                                 e.preventDefault();
                             }}
                             ref={btn}
@@ -73,8 +73,14 @@ export default function Navbar() {
                             />
                             <input type="submit" value="Pesquisar" />
                         </form>
-                        <span>Filtro</span>
-                        <span>Login</span>
+                        <NavLink
+                            to="/login"
+                            onClick={() => {
+                                vertical.current.classList.remove("clicked");
+                            }}
+                        >
+                            Login
+                        </NavLink>
                     </div>
                 </div>
             </div>
