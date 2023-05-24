@@ -1,6 +1,6 @@
 {
   "redirects": [
-    { "source": "/series", "destination": "/series" },
-    { "source": "/filmes", "destination": "/filmes"}
+    { "source": "/", "destination": "/series" },
+    { "source": "/", "destination": "/filmes"}
   ]
 }
