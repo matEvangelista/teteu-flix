@@ -1,6 +1,5 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "/series" },
-    { "source": "/", "destination": "/filmes"}
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
   ]
 }
