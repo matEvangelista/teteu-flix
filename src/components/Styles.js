@@ -482,6 +482,7 @@ export const MediaContainer = styled.main`
             `url(https://image.tmdb.org/t/p/original/${props.background_img})`};
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     min-height: 100vh;
     display: flex;
     align-items: center;
